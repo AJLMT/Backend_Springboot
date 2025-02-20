@@ -15,3 +15,9 @@ INSERT INTO game(title, age, category_id, author_id, img) VALUES ('1920: Wall St
 INSERT INTO game(title, age, category_id, author_id, img) VALUES ('Barrage', '14', 1, 3, 'Barrage.png');
 INSERT INTO game(title, age, category_id, author_id, img) VALUES ('Los viajes de Marco Polo', '12', 1, 3, 'Marco_Polo.png');
 INSERT INTO game(title, age, category_id, author_id, img) VALUES ('Azul', '8', 3, 5, 'Azul.png');
+
+INSERT INTO client(name) VALUES ('Cliente 1');
+INSERT INTO client(name) VALUES ('Cliente 2');
+INSERT INTO client(name) VALUES ('Cliente 3');
+INSERT INTO client(name) VALUES ('Cliente 4');
+INSERT INTO client(name) VALUES ('Cliente 5');
