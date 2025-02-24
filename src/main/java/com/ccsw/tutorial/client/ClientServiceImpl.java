@@ -41,12 +41,13 @@ public class ClientServiceImpl implements ClientService {
      * {@inheritDoc}
      */
     @Override
-    public void save(Long id, ClientDto dto) {
+    public void save(Long id, ClientDto dto) throws Exception {
         Client client;
+        Client exist = clientRepository.findName(dto.getName());
 
-        /*if (clientRepository.existByName(dto.getName())) {
-            throw new IllegalArgumentException("No se puede");
-        }*/
+        if (exist != null)
+            if (exist.getName().equals(dto.getName()))
+                throw new Exception("El nombre del cliente ya existe. ERROR!!!!");
 
         if (id == null) {
             client = new Client();
