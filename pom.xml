@@ -10,7 +10,14 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
-    <groupId>com.ccsw</groupId>
+    <repositories>
+        <repository>
+            <id>central</id>
+            <url>https://repo.maven.apache.org/maven2</url>
+        </repository>
+    </repositories>
+
+    <groupId>com.ccsw.tutorial</groupId>
     <artifactId>tutorial</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>tutorial</name>

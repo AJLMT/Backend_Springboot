@@ -41,20 +41,20 @@ public class ClientServiceImpl implements ClientService {
      * {@inheritDoc}
      */
     @Override
-    public void save(Long id, ClientDto dto, String name) {
-
+    public void save(Long id, ClientDto dto) {
         Client client;
 
+        /*if (clientRepository.existByName(dto.getName())) {
+            throw new IllegalArgumentException("No se puede");
+        }*/
+
         if (id == null) {
-            client = new Client();
-        } else if (name == null) {
             client = new Client();
         } else {
             client = this.get(id);
         }
 
         client.setName(dto.getName());
-
         this.clientRepository.save(client);
     }
 
@@ -69,6 +69,11 @@ public class ClientServiceImpl implements ClientService {
         }
 
         this.clientRepository.deleteById(id);
+    }
+
+    @Override
+    public boolean existByName(String name) {
+        return false;
     }
 
 }

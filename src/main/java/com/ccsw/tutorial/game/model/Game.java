@@ -31,7 +31,7 @@ public class Game {
     @JoinColumn(name = "author_id", nullable = false)
     private Author author;
 
-    @Column(name = "img", nullable = false)
+    @Column(name = "img", nullable = true)
     private String img;
 
     /**
@@ -118,7 +118,7 @@ public class Game {
      * @return img
      */
     public String getImg() {
-        if (img == "")
+        if (img == null)
             return "foto.png";
         else
             return this.img;

@@ -21,3 +21,10 @@ INSERT INTO client(name) VALUES ('Cliente 2');
 INSERT INTO client(name) VALUES ('Cliente 3');
 INSERT INTO client(name) VALUES ('Cliente 4');
 INSERT INTO client(name) VALUES ('Cliente 5');
+
+INSERT INTO prestamo(game_name, client_name, ini_Date, end_Date) VALUES ('On Mars', 'Cliente 1', '2025-02-1', '2025-02-12');
+INSERT INTO prestamo(game_name, client_name, ini_Date, end_Date) VALUES ('Azul', 'Cliente 2', '2025-02-5', '2025-02-12');
+INSERT INTO prestamo(game_name, client_name, ini_Date, end_Date) VALUES ('Aventureros al tren', 'Cliente 1', '2025-02-13', '2025-03-12');
+INSERT INTO prestamo(game_name, client_name, ini_Date, end_Date) VALUES ('Barrage', 'Cliente 3', '2025-02-11', '2025-02-15');
+INSERT INTO prestamo(game_name, client_name, ini_Date, end_Date) VALUES ('On Mars', 'Cliente 2', '2025-03-13', '2025-03-15');
+INSERT INTO prestamo(game_name, client_name, ini_Date, end_Date) VALUES ('Azul', 'Cliente 5', '2025-02-13', '2025-02-15');

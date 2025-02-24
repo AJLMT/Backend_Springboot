@@ -28,7 +28,7 @@ public interface ClientService {
      * @param id PK de la entidad
      * @param dto datos de la entidad
      */
-    void save(Long id, ClientDto dto, String name);
+    void save(Long id, ClientDto dto);
 
     /**
      * Método para borrar una {@link Client}
@@ -37,4 +37,5 @@ public interface ClientService {
      */
     void delete(Long id) throws Exception;
 
+    boolean existByName(String name);
 }
