@@ -42,7 +42,7 @@ public class PrestamoController {
 
         return new PageImpl<>(page.getContent().stream().map(e -> mapper.map(e, PrestamoDto.class)).collect(Collectors.toList()), page.getPageable(), page.getTotalElements());
     }
-
+ 
     /**
      * Método para crear o actualizar un {@link Prestamo}
      *
