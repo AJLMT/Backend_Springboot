@@ -5,7 +5,7 @@ import com.ccsw.tutorial.prestamo.model.PrestamoDto;
 import com.ccsw.tutorial.prestamo.model.PrestamoSearchDto;
 import org.springframework.data.domain.Page;
 
-import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 public interface PrestamoService {
@@ -24,7 +24,7 @@ public interface PrestamoService {
      * @param dto dto de búsqueda
      * @return {@link Page} de {@link Prestamo}
      */
-    Page<Prestamo> findPage(PrestamoSearchDto dto, String clientName, String gameTitle, Date date);
+    Page<Prestamo> findPage(PrestamoSearchDto dto, String clientName, String gameTitle, LocalDate date);
 
     /**
      * Método para crear o actualizar un {@link Prestamo}

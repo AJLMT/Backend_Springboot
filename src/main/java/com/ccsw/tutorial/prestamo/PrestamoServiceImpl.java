@@ -11,7 +11,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
-import java.sql.Date;
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.List;
 
 @Service
@@ -34,7 +35,7 @@ public class PrestamoServiceImpl implements PrestamoService {
      * {@inheritDoc}
      */
     @Override
-    public Page<Prestamo> findPage(PrestamoSearchDto dto, String clientName, String gameTitle, Date date) {
+    public Page<Prestamo> findPage(PrestamoSearchDto dto, String clientName, String gameTitle, LocalDate date) {
         Specification<Prestamo> especificacion = Specification.where(null);
         if (gameTitle != null)
             especificacion = especificacion.and(new PrestamoSpecification(new SearchCriteria("game_name", ":", gameTitle)));
@@ -55,13 +56,14 @@ public class PrestamoServiceImpl implements PrestamoService {
      */
     @Override
     public void save(Long id, PrestamoDto dto) throws Exception {
+        System.out.println("impl");
         Prestamo prestamo;
-        Date ini_Date = dto.getIni();
-        Date end_Date = dto.getEnd();
-        Long days = end_Date.getTime() - ini_Date.getTime();
+        LocalDate ini_Date = dto.getIni();
+        LocalDate end_Date = dto.getEnd();
+        long days = ChronoUnit.DAYS.between(ini_Date, end_Date);
         days = days / (1000 * 60 * 60 * 24); //Pasamos de milisegundos a días
 
-        if (end_Date.before(ini_Date)) {
+        if (end_Date.isBefore(ini_Date)) {
             throw new Exception("Fecha de fin de prestamo es inferior a la de inicio. ERROR!!!");
         }
 
@@ -76,7 +78,7 @@ public class PrestamoServiceImpl implements PrestamoService {
         }
 
         int clientPrestamos = prestamoRepository.countClientPrestam(dto.getClient_Name(), dto.getIni(), dto.getEnd());
-        
+
         if (clientPrestamos >= 1)
             throw new Exception("El cliente ya tiene un prestamo en esas fechas");
 

@@ -12,7 +12,7 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
-import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -37,7 +37,7 @@ public class PrestamoController {
     @Operation(summary = "Find Page", description = "Method that return a page of Prestamos")
     @RequestMapping(path = "", method = RequestMethod.POST)
     public Page<PrestamoDto> findPage(@RequestBody PrestamoSearchDto dto, @RequestParam(name = "clientName", required = false) String clientName, @RequestParam(name = "gameName", required = false) String gameTitle,
-            @RequestParam(name = "date", required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date date) {
+            @RequestParam(name = "date", required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date) {
         Page<Prestamo> page = this.prestamoService.findPage(dto, clientName, gameTitle, date);
 
         return new PageImpl<>(page.getContent().stream().map(e -> mapper.map(e, PrestamoDto.class)).collect(Collectors.toList()), page.getPageable(), page.getTotalElements());

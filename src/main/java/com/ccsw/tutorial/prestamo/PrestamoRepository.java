@@ -8,7 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 
-import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 public interface PrestamoRepository extends CrudRepository<Prestamo, Long> {
@@ -22,8 +22,8 @@ public interface PrestamoRepository extends CrudRepository<Prestamo, Long> {
     Page<Prestamo> findAll(Specification<Prestamo> specification, Pageable pageable);
 
     @Query("SELECT p FROM Prestamo p WHERE p.game_name = :game_name AND :ini_Date <= p.end_Date AND :end_Date >= p.ini_Date AND p.client_name <> :client_name")
-    List<Prestamo> findAPrestam(@Param("client_name") String client_name, @Param("game_name") String game_name, @Param("ini_Date") Date startDate, @Param("end_Date") Date endDate);
+    List<Prestamo> findAPrestam(@Param("client_name") String client_name, @Param("game_name") String game_name, @Param("ini_Date") LocalDate startDate, @Param("end_Date") LocalDate endDate);
 
     @Query("SELECT COUNT(p) FROM Prestamo p WHERE p.client_name = :client_name AND :ini_Date <= p.end_Date AND :end_Date >= p.ini_Date")
-    int countClientPrestam(@Param("client_name") String client_name, @Param("ini_Date") Date startDate, @Param("end_Date") Date endDate);
+    int countClientPrestam(@Param("client_name") String client_name, @Param("ini_Date") LocalDate startDate, @Param("end_Date") LocalDate endDate);
 }

@@ -28,11 +28,11 @@ public class PrestamoSpecification implements Specification<Prestamo> {
         }
 
         if (criteria.getOperation().equalsIgnoreCase(":>")) {
-            return builder.greaterThanOrEqualTo(root.get(criteria.getKey()).as(java.util.Date.class), (java.util.Date) criteria.getValue());
+            return builder.greaterThanOrEqualTo(root.get(criteria.getKey()).as(java.time.LocalDate.class), (java.time.LocalDate) criteria.getValue());
         }
 
         if (criteria.getOperation().equalsIgnoreCase(":<")) {
-            return builder.lessThanOrEqualTo(root.get(criteria.getKey()).as(java.util.Date.class), (java.util.Date) criteria.getValue());
+            return builder.lessThanOrEqualTo(root.get(criteria.getKey()).as(java.time.LocalDate.class), (java.time.LocalDate) criteria.getValue());
         }
 
         return null;

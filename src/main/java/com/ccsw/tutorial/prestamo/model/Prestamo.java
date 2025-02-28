@@ -3,7 +3,7 @@ package com.ccsw.tutorial.prestamo.model;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 
-import java.sql.Date;
+import java.time.LocalDate;
 
 /**
  * @prestamo ccsw
@@ -27,10 +27,10 @@ public class Prestamo {
     private String client_name;
 
     @Column(name = "ini_Date", nullable = false)
-    private Date ini_Date;
+    private LocalDate ini_Date;
 
     @Column(name = "end_Date", nullable = false)
-    private Date end_Date;
+    private LocalDate end_Date;
 
     /**
      * @return id
@@ -81,7 +81,7 @@ public class Prestamo {
     /**
      * @return ini_Date
      */
-    public Date getIni() {
+    public LocalDate getIni() {
 
         return this.ini_Date;
     }
@@ -89,7 +89,7 @@ public class Prestamo {
     /**
      * @param ini_Date new value of {@link #getIni}.
      */
-    public void setIni(Date ini_Date) {
+    public void setIni(LocalDate ini_Date) {
 
         this.ini_Date = ini_Date;
     }
@@ -97,7 +97,7 @@ public class Prestamo {
     /**
      * @return end_Date
      */
-    public Date getEnd() {
+    public LocalDate getEnd() {
 
         return this.end_Date;
     }
@@ -105,7 +105,7 @@ public class Prestamo {
     /**
      * @param end_Date new value of {@link #getEnd}.
      */
-    public void setEnd(Date end_Date) {
+    public void setEnd(LocalDate end_Date) {
 
         this.end_Date = end_Date;
     }

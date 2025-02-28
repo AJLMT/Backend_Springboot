@@ -1,6 +1,6 @@
 package com.ccsw.tutorial.prestamo.model;
 
-import java.sql.Date;
+import java.time.LocalDate;
 
 public class PrestamoDto {
 
@@ -10,9 +10,9 @@ public class PrestamoDto {
 
     private String client_name;
 
-    private Date ini_Date;
+    private LocalDate ini_Date;
 
-    private Date end_Date;
+    private LocalDate end_Date;
 
     /**
      * @return id
@@ -63,7 +63,7 @@ public class PrestamoDto {
     /**
      * @return ini_Date
      */
-    public Date getIni() {
+    public LocalDate getIni() {
 
         return this.ini_Date;
     }
@@ -71,7 +71,7 @@ public class PrestamoDto {
     /**
      * @param ini_Date new value of {@link #getIni}.
      */
-    public void setIni(Date ini_Date) {
+    public void setIni(LocalDate ini_Date) {
 
         this.ini_Date = ini_Date;
     }
@@ -79,7 +79,7 @@ public class PrestamoDto {
     /**
      * @return end_Date
      */
-    public Date getEnd() {
+    public LocalDate getEnd() {
 
         return this.end_Date;
     }
@@ -87,7 +87,7 @@ public class PrestamoDto {
     /**
      * @param end_Date new value of {@link #getEnd}.
      */
-    public void setEnd(Date end_Date) {
+    public void setEnd(LocalDate end_Date) {
 
         this.end_Date = end_Date;
     }
